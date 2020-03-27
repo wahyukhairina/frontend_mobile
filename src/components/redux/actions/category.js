@@ -2,7 +2,7 @@ import axios from 'axios';
 import {API_KEY} from 'react-native-dotenv';
 
 export const getCategory = () => {
-  console.log('ini di action redux');
+  console.log('ini di action category');
   return {
     type: 'GET_CATEGORY',
     payload: axios({

@@ -153,7 +153,7 @@ renderFooter =() =>{
             style={{borderRadius: 5, marginHorizontal: 5, marginVertical: 5}}
           />
           {/* <View style={{flex: 1, backgroundColor:'red'}} ></View> */}
-          <Text style={{fontFamily:'monospace'}}>{item.name}</Text>
+          <Text style={{fontFamily:'monospace'}} ellipsizeMode='tail' numberOfLines={1} >{item.name}</Text>
           <Text> {this.convertToRupiah(item.price)} </Text>
           <TouchableOpacity
             style={{
