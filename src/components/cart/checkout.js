@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import uuid from 'react-native-uuid';
+import { withNavigation } from 'react-navigation';
 
 import {
   Container,
@@ -23,6 +24,7 @@ import {Col, Row, Grid} from 'react-native-easy-grid';
 import {FlatList} from 'react-native';
 import {checkout} from '../redux/actions/cart';
 import {getProduct} from '../redux/actions/product';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 class Checkout extends Component {
   static navigationOptions = {
@@ -49,7 +51,8 @@ class Checkout extends Component {
     alert('Success')
   };
   componentDidMount() {
-    const productsInCart = this.props.navigation.getParam('products');
+    const productsInCart = this.props.productsInCart;
+    
     var total = 0;
     productsInCart.map(e => {
       total += e.price * e.quantity;
@@ -57,6 +60,8 @@ class Checkout extends Component {
     this.setState({
       totalPrice: total,
     });
+
+  
   }
   componentDidUpdate() {
     this.props.dispatch(getProduct({}));
@@ -84,6 +89,8 @@ class Checkout extends Component {
   }
 
   render() {
+  
+    const ongkir = this.props.navigation.getParam('ongkir')
     return (
       <Container>
       <Grid>
@@ -113,9 +120,12 @@ class Checkout extends Component {
               keyExtractor={item => item.productId.toString()}
             />
             <View style={{marginHorizontal: 20, marginTop: 10}}>
-              <Text>total: {this.convertToRupiah(this.state.totalPrice)}</Text>
+              <Text>price: {this.convertToRupiah(this.state.totalPrice)}</Text>
+              <Text>shipment: {this.convertToRupiah(ongkir)}</Text>
+              <Text>total: {this.convertToRupiah(this.state.totalPrice + ongkir)}</Text>
+
               <View style={{marginHorizontal: 20, marginTop: 10}}>
-              <Text> To continue your shopping, please transfer to BRI bank on behalf of PT. GayaIn Nusantara </Text>
+              <Text> To continue your shopping, please transfer {this.convertToRupiah(this.state.totalPrice + ongkir)}  to BRI bank on behalf of PT. GayaIn Nusantara </Text>
               <Text style={{textAlign: 'center'}}> 44686-1234-4321-32 </Text>
               </View>
               
@@ -136,21 +146,7 @@ class Checkout extends Component {
                 Checkout
               </Text>
             </Button>
-            <Button 
-              onPress={() => this.props.navigation.navigate('AddCost')}
-              info
-              disabled={this.state.Disabled}
-              style={{
-                justifyContent: 'center',
-                marginTop: 10,
-                width: 200,
-                backgroundColor: '#f1a98c'
-              }}>
-              <Icon name="checkbox" />
-              <Text style={{textAlign: 'center', fontWeight: 'bold'}}>
-               Ongkir
-              </Text>
-            </Button>
+            
             </View>
           </Content>
         </Col>
@@ -165,4 +161,4 @@ const mapStateToProps = state => {
     totalPurchase: state.cart.totalPurchase,
   };
 };
-export default connect(mapStateToProps)(Checkout);
+export default withNavigation (connect(mapStateToProps)(Checkout));

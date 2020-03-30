@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-
+import { withNavigation } from 'react-navigation'
 import {
   Container,
   Header,
@@ -75,8 +75,6 @@ class Cart extends Component {
   }
 
   render() {
-    console.log(this.props)
-    console.log(this.props)
     const ViewCart = () => {
       if (this.props.productsInCart.length < 1) {
         return (
@@ -143,7 +141,7 @@ class Cart extends Component {
 
             <View style={{alignContent:'center', alignItems:'center'}}>
             <TouchableOpacity style={{backgroundColor:'#a5a6a8', width: 200, height:30, justifyContent:'center', alignItems:'center', borderRadius: 5}} onPress={() =>
-                this.props.navigate('Checkout', {
+                this.props.navigate('Ongkir', {
                   products: this.props.productsInCart,
                 })
               }>
@@ -187,4 +185,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps)(Cart);
+export default withNavigation (connect(mapStateToProps)(Cart));
