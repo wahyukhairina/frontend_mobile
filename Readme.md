@@ -34,4 +34,7 @@ You can Download the APK [`here`](https://firebasestorage.googleapis.com/v0/b/al
   </span>
 </p>
 
+## License
+© [Wahyu Khairina](https://github.com/wahyukhairina/ " Wahyu Khairina")
+
 
