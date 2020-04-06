@@ -20,12 +20,8 @@ import productDetails from './src/components/product/product_details'
 import CartScreen from './src/components/cart/cart';
 import Checkout from './src/components/cart/checkout';
 import profileUser from './src/components/user/profile';
-import Routes from './src/components/checkout/route'
 import Cost from './src/components/checkout/cost'
 import Ongkir from './src/components/checkout/ongkir'
-
-import {API_KEY} from 'react-native-dotenv';
-
 
 const homeNavigator = createStackNavigator({
   Home: Home,
