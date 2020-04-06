@@ -1,9 +1,5 @@
 <h1 align='center'> Gayain <br>e-commerce mobile app</h1>
 
-<p align='center'>
-    <img width="400" src='https://user-images.githubusercontent.com/61218212/78585260-bc08a500-7863-11ea-9d76-5b5110f119ba.png' />
-</p>
-
 <br>
 <br>
 
@@ -34,8 +30,7 @@ You can Download the APK [`here`](https://firebasestorage.googleapis.com/v0/b/al
       <image width="200" src="https://user-images.githubusercontent.com/61218212/78585411-07bb4e80-7864-11ea-8c57-9337bf10a656.png" /   
   </span>
   <span>
-     <image width="200" src="https://user-images.githubusercontent.com/61218212/78585414-08ec7b80-7864-11ea-93df-ee7a363f209f.png" />
-      <image width="200" src="https://user-images.githubusercontent.com/61218212/78585403-0558f480-7864-11ea-9634-3470f90e5508.png" />  
+     <image width="200" src="https://user-images.githubusercontent.com/61218212/78585414-08ec7b80-7864-11ea-93df-ee7a363f209f.png" /> 
   </span>
 </p>
 
