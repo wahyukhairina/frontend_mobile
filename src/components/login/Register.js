@@ -33,18 +33,22 @@ class Register extends Component {
     city: '',
     province: '',
   }
-  // componentDidMount(){
-  //   if (!this.props.auth.isAuthenticated) {
-  //     this.props.navigation.navigate('Login')
-  //   }
-  // }
 
   onSubmit =() => {
+    if(this.state.name < 3){
+      Alert.alert('Error','input valid name')
+    }
+    if(this.state.email < 3){
+      Alert.alert('Error','input valid email')
+    }
+    if(this.state.username < 3){
+      Alert.alert('Error','input valid username')
+    }
+    if(this.state.password < 6){
+      Alert.alert('Error','password more than 6 character')
+    }
     this.props.dispatch(addUser(this.state));
     this.props.navigation.navigate('Login')
-    // if(!this.props.products.products.isLoading){
-    //     this.props.navigation.navigate('Product');
-    // }
     
 }
 
